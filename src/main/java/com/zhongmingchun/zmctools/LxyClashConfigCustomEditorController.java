@@ -9,16 +9,22 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.util.*;
 
+/**
+ * 良心云 机场 订阅自定义编辑
+ */
 @RestController
 @RequestMapping("/lxy")
-public class LxyClashConfigCustomDownload {
+public class LxyClashConfigCustomEditorController {
 
     private AirportClashSubscribeDownloader airportClashSubscribeDownloader = new AirportClashSubscribeDownloader();
 
     private static final List<String> CUSTOM_RULES = Arrays.asList(
             // OpenAI / ChatGPT -> AIGC
-            "DOMAIN-SUFFIX,openai.com,AIGC",
             "DOMAIN-SUFFIX,chatgpt.com,AIGC",
+            "DOMAIN-SUFFIX,openai.com,AIGC",
+            "DOMAIN-KEYWORD,chatgpt,AIGC",
+            "DOMAIN-KEYWORD,openai,AIGC",
+            "DOMAIN-SUFFIX,ingest.us.sentry.io,AIGC",
             // Steam: 下载游戏 -> 直连, 其他 -> 代理`
             "DOMAIN-SUFFIX,steamcontent.com,DIRECT",
             "DOMAIN-SUFFIX,steamserver.net,DIRECT",
@@ -29,8 +35,12 @@ public class LxyClashConfigCustomDownload {
             "DOMAIN-SUFFIX,push-apple.com,DIRECT",
             // Apple: 下载软件 -> 直连
             "DOMAIN-KEYWORD,iosapps,DIRECT",
-            "DOMAIN-SUFFIX,icloud.com.cn,DIRECT",
             "DOMAIN-SUFFIX,cdn-apple.com,DIRECT",
+            // Apple: 云上贵州 -> 直连
+            "DOMAIN-SUFFIX,icloud.com.cn,DIRECT",
+            // Apple: 国外icloud -> 代理
+            "DOMAIN-KEYWORD,icloud,DIRECT",
+            // Apple: 国外apple -> 代理
             "DOMAIN-KEYWORD,apple,良心云",
             // 育碧: 直连
             "DOMAIN-SUFFIX,ubi.com,DIRECT",
@@ -38,8 +48,8 @@ public class LxyClashConfigCustomDownload {
             "DOMAIN-KEYWORD,ubisoft,DIRECT"
     );
 
-    @GetMapping(value = "/parse")
-    public String parse(@RequestParam("url") String url) {
+    @GetMapping(value = "/edit")
+    public String edit(@RequestParam("url") String url) {
         // 下载订阅配置文件
         String configStr = airportClashSubscribeDownloader.download(url);
         // yaml输出配置
