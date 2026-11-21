@@ -136,6 +136,8 @@ function main(config) {
     const commonProxies = [
         directGroupName,
         "REJECT",
+        autoGroupName,
+        fallbackGroupName,
         proxyGroupName,
         ...regionNames
     ];
