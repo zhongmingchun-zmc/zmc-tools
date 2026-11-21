@@ -1,312 +1,283 @@
+
 [YAML]
 
-# ==========================================================
-# 1. 地区代理组
-# ==========================================================
+# ==========================================
+# 1. 代理组
+# 整体替换原有 proxy-groups
+# ==========================================
 
-proxy-groups+:
+proxy-groups:
 
-  - name: 香港
+  # 主代理选择组
+  - name: "🚀 Proxy"
+    type: select
+    proxies:
+      - "➡️直连"
+      - REJECT
+      - "⚡ 自动选择"
+      - "🛟 故障转移"
+      - "🇭🇰 香港"
+      - "🇯🇵 日本"
+      - "🇸🇬 新加坡"
+      - "🇹🇼 台湾"
+      - "🇺🇸 美国"
+    default-selected: "⚡ 自动选择"
+
+  # 直连组
+  - name: "➡️直连"
     type: url-test
-    include-all: true
-    filter: "(?i)香港|HK|Hong Kong"
-    url: https://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+    url: "https://connect.rom.miui.com/generate_204"
     interval: 120
 
-  - name: 日本
+  # 自动选择
+  - name: "⚡ 自动选择"
     type: url-test
     include-all: true
-    filter: "(?i)日本|JP|Japan"
-    url: https://www.gstatic.com/generate_204
+    url: "https://www.gstatic.com/generate_204"
     interval: 120
 
-  - name: 新加坡
+  # 故障转移
+  - name: "🛟 故障转移"
+    type: fallback
+    include-all: true
+    url: "https://www.gstatic.com/generate_204"
+    interval: 120
+
+  # ==========================================
+  # 2. 地区代理组
+  # include-all + filter 动态匹配节点
+  # ==========================================
+
+  - name: "🇭🇰 香港"
     type: url-test
     include-all: true
-    filter: "(?i)新加坡|Singapore|SG"
-    url: https://www.gstatic.com/generate_204
+    filter: '(?i)香港|HK|Hong Kong'
+    url: "https://www.gstatic.com/generate_204"
     interval: 120
+    empty-fallback: DIRECT
 
-  - name: 台湾
+  - name: "🇯🇵 日本"
     type: url-test
     include-all: true
-    filter: "(?i)台湾|台灣|Taiwan|TW"
-    url: https://www.gstatic.com/generate_204
+    filter: '(?i)日本|JP|Japan'
+    url: "https://www.gstatic.com/generate_204"
     interval: 120
+    empty-fallback: DIRECT
 
-  - name: 美国
+  - name: "🇸🇬 新加坡"
     type: url-test
     include-all: true
-    filter: "(?i)美国|美國|United States|USA|US"
-    url: https://www.gstatic.com/generate_204
+    filter: '(?i)新加坡|SG|Singapore'
+    url: "https://www.gstatic.com/generate_204"
     interval: 120
+    empty-fallback: DIRECT
 
+  - name: "🇹🇼 台湾"
+    type: url-test
+    include-all: true
+    filter: '(?i)台湾|TW|Taiwan'
+    url: "https://www.gstatic.com/generate_204"
+    interval: 120
+    empty-fallback: DIRECT
 
-# ==========================================================
-# 2. 业务代理组
-# 顺序与原 JS 保持一致
-# ==========================================================
+  - name: "🇺🇸 美国"
+    type: url-test
+    include-all: true
+    filter: '(?i)美国|US|United States'
+    url: "https://www.gstatic.com/generate_204"
+    interval: 120
+    empty-fallback: DIRECT
 
-  - name: AI
+  # ==========================================
+  # 3. 服务分流代理组
+  # 默认：Proxy
+  # ==========================================
+
+  - name: "🤖 AI"
     type: select
-    proxies:
-      - DIRECT
+    proxies: &common-proxies
+      - "➡️直连"
       - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+      - "🚀 Proxy"
+      - "🇭🇰 香港"
+      - "🇯🇵 日本"
+      - "🇸🇬 新加坡"
+      - "🇹🇼 台湾"
+      - "🇺🇸 美国"
+    default-selected: "🚀 Proxy"
 
-  - name: YouTube
+  - name: "▶️ YouTube"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Google
+  - name: "🔎 Google"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Microsoft
+  - name: "🐙 GitHub"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Apple-基础服务
+  - name: "🍎 Apple-基础服务"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "➡️直连"
 
-  - name: Apple
+  - name: "🍎 Apple"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Telegram
+  - name: "🪟 Microsoft"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: GitHub
+  - name: "✈️ Telegram"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Steam-基础服务
+  - name: "🎮 Steam-基础服务"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "➡️直连"
 
-  - name: Steam
+  - name: "🎮 Steam"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Ubisoft-商城
+  - name: "🛍️ Ubisoft-商城"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: Ubisoft
+  - name: "🎮 Ubisoft"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "➡️直连"
 
+  # ==========================================
+  # 4. 国内、国外及兜底代理组
+  # ==========================================
 
-# ==========================================================
-# 3. 国内、国外、漏网之鱼
-# ==========================================================
-
-  - name: 国内
+  - name: "🇨🇳 国内"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "➡️直连"
 
-  - name: 国外
+  - name: "🌐 国外"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
-  - name: 漏网之鱼
+  - name: "🐟 漏网之鱼"
     type: select
-    proxies:
-      - DIRECT
-      - REJECT
-      - Proxy
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 美国
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
 
-# ==========================================================
-# 4. 完整替换规则
-# ==========================================================
+# ==========================================
+# 5. 分流规则
+# 整体替换原有 rules
+# ==========================================
 
 rules:
 
-  # Apple 基础服务：默认直连
-  - DOMAIN-SUFFIX,push.apple.com,Apple-基础服务
-  - DOMAIN-SUFFIX,push-apple.com,Apple-基础服务
-  - DOMAIN-SUFFIX,apple.com.cn,Apple-基础服务
-  - DOMAIN-SUFFIX,cdn-apple.com,Apple-基础服务
-  - DOMAIN-SUFFIX,icloud.com.cn,Apple-基础服务
-  - DOMAIN-SUFFIX,time.apple.com,Apple-基础服务
-  - DOMAIN-KEYWORD,iosapps,Apple-基础服务
-
-  # Steam 基础服务：默认直连
-  - DOMAIN,steamcdn-a.akamaihd.net,Steam-基础服务
-  - DOMAIN-SUFFIX,steamcontent.com,Steam-基础服务
-  - DOMAIN-SUFFIX,steamserver.net,Steam-基础服务
-  - DOMAIN-SUFFIX,oss-accelerate.aliyuncs.com,Steam-基础服务
-
-  # Ubisoft 商城：默认走代理
-  - DOMAIN,store.ubi.com,Ubisoft-商城
-  - DOMAIN,store.ubisoft.com,Ubisoft-商城
-  - DOMAIN,store-sessions.ecom.ubi.com,Ubisoft-商城
-  - DOMAIN-KEYWORD,uplay-savegames,Ubisoft-商城
-
   # AI
-  - GEOSITE,category-ai-!cn,AI
+  - GEOSITE,category-ai-!cn,🤖 AI
 
   # YouTube
-  - GEOSITE,youtube,YouTube
+  - GEOSITE,youtube,▶️ YouTube
 
   # Google
-  - GEOSITE,google,Google
-
-  # Apple
-  - GEOSITE,apple,Apple
-
-  # Microsoft
-  - GEOSITE,microsoft,Microsoft
+  - GEOSITE,google,🔎 Google
 
   # GitHub
-  - GEOSITE,github,GitHub
+  - GEOSITE,github,🐙 GitHub
+
+  # Apple 基础服务
+  - DOMAIN-SUFFIX,push.apple.com,🍎 Apple-基础服务
+  - DOMAIN-SUFFIX,push-apple.com,🍎 Apple-基础服务
+  - DOMAIN-SUFFIX,apple.com.cn,🍎 Apple-基础服务
+  - DOMAIN-SUFFIX,cdn-apple.com,🍎 Apple-基础服务
+  - DOMAIN-SUFFIX,icloud.com.cn,🍎 Apple-基础服务
+  - DOMAIN-SUFFIX,time.apple.com,🍎 Apple-基础服务
+  - DOMAIN-KEYWORD,iosapps,🍎 Apple-基础服务
+
+  # Apple
+  - DOMAIN-KEYWORD,apple,🍎 Apple
+
+  # Microsoft
+  - GEOSITE,microsoft,🪟 Microsoft
 
   # Telegram
-  - GEOSITE,telegram,Telegram
-  - GEOIP,telegram,Telegram,no-resolve
+  - GEOSITE,telegram,✈️ Telegram
+  - GEOIP,telegram,✈️ Telegram,no-resolve
+  - IP-CIDR,91.105.192.0/23,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.4.0/22,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.8.0/22,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.12.0/22,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.16.0/22,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.20.0/22,✈️ Telegram,no-resolve
+  - IP-CIDR,91.108.56.0/22,✈️ Telegram,no-resolve
+  - IP-CIDR,149.154.160.0/20,✈️ Telegram,no-resolve
+  - IP-CIDR,185.76.151.0/24,✈️ Telegram,no-resolve
+
+  - IP-CIDR6,2001:67c:4e8::/48,✈️ Telegram,no-resolve
+  - IP-CIDR6,2001:b28:f23c::/48,✈️ Telegram,no-resolve
+  - IP-CIDR6,2001:b28:f23d::/48,✈️ Telegram,no-resolve
+  - IP-CIDR6,2001:b28:f23f::/48,✈️ Telegram,no-resolve
+  - IP-CIDR6,2a0a:f280::/32,✈️ Telegram,no-resolve
+
+  # Steam 基础服务
+  - DOMAIN,steamcdn-a.akamaihd.net,🎮 Steam-基础服务
+  - DOMAIN-SUFFIX,steamcontent.com,🎮 Steam-基础服务
+  - DOMAIN-SUFFIX,steamserver.net,🎮 Steam-基础服务
+  - DOMAIN-SUFFIX,oss-accelerate.aliyuncs.com,🎮 Steam-基础服务
 
   # Steam
-  - DOMAIN-KEYWORD,steam,Steam
+  - DOMAIN-KEYWORD,steam,🎮 Steam
+
+  # Ubisoft 商城
+  - DOMAIN,store.ubi.com,🛍️ Ubisoft-商城
+  - DOMAIN,store.ubisoft.com,🛍️ Ubisoft-商城
+  - DOMAIN,store-sessions.ecom.ubi.com,🛍️ Ubisoft-商城
+  - DOMAIN-KEYWORD,uplay-savegames,🛍️ Ubisoft-商城
 
   # Ubisoft
-  - DOMAIN-KEYWORD,ubi,Ubisoft
-  - DOMAIN-KEYWORD,ubisoft,Ubisoft
+  - DOMAIN-KEYWORD,ubi,🎮 Ubisoft
+  - DOMAIN-KEYWORD,ubisoft,🎮 Ubisoft
 
-  # 国内外兜底规则
-  - GEOSITE,geolocation-!cn,国外
-  - GEOSITE,cn,国内
-  - GEOIP,CN,国内,no-resolve
+  # DNS 泄露检测网站
+  - DOMAIN-SUFFIX,browserleaks.com,🚀 Proxy
+  - DOMAIN-SUFFIX,dnsleaktest.com,🚀 Proxy
+  - DOMAIN-SUFFIX,dnsleak.com,🚀 Proxy
+  - DOMAIN-SUFFIX,ipleak.net,🚀 Proxy
+  - DOMAIN-SUFFIX,whoer.net,🚀 Proxy
+  - DOMAIN-SUFFIX,dnscheck.tools,🚀 Proxy
 
-  - MATCH,漏网之鱼
+  # 国内外兜底
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT,no-resolve
+  - GEOSITE,geolocation-!cn,🌐 国外
+
+  # 最终兜底
+  - MATCH,🐟 漏网之鱼
 
 
-# ==========================================================
-# 5. DNS 完整替换
-# ==========================================================
+# ==========================================
+# 6. DNS 配置
+# dns 使用递归合并，保留未列出的字段
+# ==========================================
 
-dns!:
-  enable: true
-  ipv6: true
-  enhanced-mode: fake-ip
-  fake-ip-range: 198.18.0.1/16
-  use-hosts: true
+dns:
   respect-rules: true
 
   default-nameserver:
@@ -318,19 +289,14 @@ dns!:
     - 119.29.29.29
 
   nameserver:
-    - https://dns.google/dns-query
-    - https://cloudflare-dns.com/dns-query
+    - "https://dns.google/dns-query"
+    - "https://cloudflare-dns.com/dns-query"
 
   nameserver-policy:
     "geosite:cn":
-      - https://dns.alidns.com/dns-query
-      - https://doh.pub/dns-query
+      - "https://dns.alidns.com/dns-query"
+      - "https://doh.pub/dns-query"
 
-
-[Overwrite]
-
-# ==========================================================
-# 6. 原始代理组改名 + 引用更新 + 地区组注入
-# ==========================================================
-
-ruby_edit "$CONFIG_FILE" "['proxy-groups']" "Value['proxy-groups'].map { |g| g['name'] = 'Proxy' if g['name'] == '良心云'; g['proxies'] = g['proxies'].map { |p| p == '良心云' ? 'Proxy' : p } if g['proxies'].is_a?(Array); if g['name'] == 'Proxy'; regions = ['香港', '日本', '新加坡', '台湾', '美国'].select { |n| Value['proxy-groups'].any? { |x| x['name'] == n } }; g['proxies'] = regions + (g['proxies'] || []).reject { |p| regions.include?(p) }; end; g }"
+  # 数组追加：保留原有 fake-ip-filter 内容
+  fake-ip-filter+:
+    - "geosite:cn"
