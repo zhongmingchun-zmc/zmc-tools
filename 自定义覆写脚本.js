@@ -327,12 +327,15 @@ function main(config) {
         ]
     };
 
+    // Fake-IP 黑名单模式
+    config.dns["fake-ip-filter-mode"] = "blacklist";
+    
     // fake-ip-filter 增量追加 geosite:cn，保留已有配置
     config.dns["fake-ip-filter"] =
         Array.isArray(config.dns["fake-ip-filter"])
             ? config.dns["fake-ip-filter"]
             : [];
-
+    
     if (!config.dns["fake-ip-filter"].includes("geosite:cn")) {
         config.dns["fake-ip-filter"].push("geosite:cn");
     }
