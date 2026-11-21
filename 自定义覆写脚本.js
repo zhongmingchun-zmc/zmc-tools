@@ -114,7 +114,7 @@ function main(config) {
     // 6. 创建 Proxy 主选择组
     // =========================
 
-    const proxyGroupName = "🎯 Proxy";
+    const proxyGroupName = "🚀 Proxy";
 
     const proxyGroup = {
         name: proxyGroupName,
@@ -246,6 +246,20 @@ function main(config) {
         // Telegram
         "GEOSITE,telegram,✈️ Telegram",
         "GEOIP,telegram,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.105.192.0/23,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.108.4.0/22,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.108.8.0/22,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.108.12.0/22,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.108.16.0/22,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.108.20.0/22,✈️ Telegram,no-resolve",
+        "IP-CIDR,91.108.56.0/22,✈️ Telegram,no-resolve",
+        "IP-CIDR,149.154.160.0/20,✈️ Telegram,no-resolve",
+        "IP-CIDR,185.76.151.0/24,✈️ Telegram,no-resolve",
+        "IP-CIDR6,2001:67c:4e8::/48,✈️ Telegram,no-resolve",
+        "IP-CIDR6,2001:b28:f23c::/48,✈️ Telegram,no-resolve",
+        "IP-CIDR6,2001:b28:f23d::/48,✈️ Telegram,no-resolve",
+        "IP-CIDR6,2001:b28:f23f::/48,✈️ Telegram,no-resolve",
+        "IP-CIDR6,2a0a:f280::/32,✈️ Telegram,no-resolve",
 
         // Steam 基础服务
         "DOMAIN,steamcdn-a.akamaihd.net,🎮 Steam-基础服务",
@@ -267,12 +281,12 @@ function main(config) {
         "DOMAIN-KEYWORD,ubisoft,🎮 Ubisoft",
 
         // DNS 泄露检测网站，统一走国外
-        "DOMAIN-SUFFIX,browserleaks.com,🎯 Proxy",
-        "DOMAIN-SUFFIX,dnsleaktest.com,🎯 Proxy",
-        "DOMAIN-SUFFIX,dnsleak.com,🎯 Proxy",
-        "DOMAIN-SUFFIX,ipleak.net,🎯 Proxy",
-        "DOMAIN-SUFFIX,whoer.net,🎯 Proxy",
-        "DOMAIN-SUFFIX,dnscheck.tools,🎯 Proxy",
+        "DOMAIN-SUFFIX,browserleaks.com,🚀 Proxy",
+        "DOMAIN-SUFFIX,dnsleaktest.com,🚀 Proxy",
+        "DOMAIN-SUFFIX,dnsleak.com,🚀 Proxy",
+        "DOMAIN-SUFFIX,ipleak.net,🚀 Proxy",
+        "DOMAIN-SUFFIX,whoer.net,🚀 Proxy",
+        "DOMAIN-SUFFIX,dnscheck.tools,🚀 Proxy",
 
         // 国内外兜底
         "GEOSITE,cn,DIRECT",
