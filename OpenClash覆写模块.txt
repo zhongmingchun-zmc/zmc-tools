@@ -100,6 +100,8 @@ proxy-groups:
     proxies: &common-proxies
       - "➡️直连"
       - REJECT
+      - "⚡ 自动选择"
+      - "🛟 故障转移"
       - "🚀 Proxy"
       - "🇭🇰 香港"
       - "🇯🇵 日本"
@@ -279,7 +281,7 @@ rules:
 
 dns:
   respect-rules: true
-
+  fake-ip-filter-mode: blacklist
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
