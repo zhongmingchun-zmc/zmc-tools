@@ -225,30 +225,17 @@ rules:
   # 私有网络域名
   - GEOSITE,private,➡️直连
 
-  # SpeedTest / PlayStation
+  # SpeedTest
   - GEOSITE,speedtest,⏱️ SpeedTest
+  - DOMAIN-KEYWORD,speedtest,⏱️ SpeedTest
 
-
-  # 连通性测试 -> 直连
+  # PlayStation 连通性测试 -> 直连
   - DOMAIN,ena.net.playstation.net,🕹️ PlayStation-基础服务
-  # NAT检测 -> 直连
+  # PlayStation NAT类型检测(fike-ip-filter要排除此域名) -> 直连
   - DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务
 
-  # 其余全部走代理
-  - DOMAIN-KEYWORD,playstation,🎮 PlayStation
-
-  # 上传服务 -> 代理
-  - DOMAIN-SUFFIX,post.net.playstation.net,🕹️ PlayStation-基础服务
-  # PSN 在线服务
-  - DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PlayStation
-  - DOMAIN-SUFFIX,dl.playstation.net,🎮 PlayStation
-  - DOMAIN-SUFFIX,update.playstation.net,🎮 PlayStation
-
-  - DOMAIN-SUFFIX,api.playstation.com,🎮 PlayStation
-  - DOMAIN-SUFFIX,ps5.np.playstation.net,🎮 PlayStation
-
   # PlayStation
-  - GEOSITE,playstation,🕹️ PlayStation-基础服务
+  - DOMAIN-KEYWORD,playstation,🎮 PlayStation
 
   # AI
   - GEOSITE,category-ai-!cn,🤖 AI
