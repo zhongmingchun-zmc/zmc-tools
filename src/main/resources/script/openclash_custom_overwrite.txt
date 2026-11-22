@@ -180,15 +180,15 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "➡️直连"
 
-  - name: "🎮 PlayStation"
-    type: select
-    proxies: *common-proxies
-    default-selected: "🚀 Proxy"
-
   - name: "🕹️ PlayStation-基础服务"
     type: select
     proxies: *common-proxies
     default-selected: "➡️直连"
+
+  - name: "🎮 PlayStation"
+    type: select
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
 
   # ==========================================
   # 4. 国内、国外及兜底代理组
