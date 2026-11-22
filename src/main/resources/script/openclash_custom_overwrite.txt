@@ -232,12 +232,12 @@ rules:
   - DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PSN
   - DOMAIN-SUFFIX,dl.playstation.net,🎮 PSN
   - DOMAIN-SUFFIX,update.playstation.net,🎮 PSN
-  - DOMAIN-SUFFIX,post.net.playstation.net,🎮 PSN
   - DOMAIN-SUFFIX,api.playstation.com,🎮 PSN
   - DOMAIN-SUFFIX,ps5.np.playstation.net,🎮 PSN
 
   # PlayStation
-  - GEOSITE,playstation,🕹️ PlayStation
+    // 上传服务
+  - DOMAIN-KEYWORD,playstation,🕹️ PlayStation
 
   # AI
   - GEOSITE,category-ai-!cn,🤖 AI
