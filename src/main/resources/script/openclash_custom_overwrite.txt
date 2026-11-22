@@ -225,18 +225,6 @@ rules:
   # 私有网络域名
   - GEOSITE,private,➡️直连
 
-  # SpeedTest
-  - GEOSITE,speedtest,⏱️ SpeedTest
-  - DOMAIN-KEYWORD,speedtest,⏱️ SpeedTest
-
-  # PlayStation 连通性测试 -> 直连
-  - DOMAIN,ena.net.playstation.net,🕹️ PlayStation-基础服务
-  # PlayStation NAT类型检测(fike-ip-filter要排除此域名) -> 直连
-  - DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务
-
-  # PlayStation
-  - DOMAIN-KEYWORD,playstation,🎮 PlayStation
-
   # AI
   - GEOSITE,category-ai-!cn,🤖 AI
 
@@ -310,6 +298,18 @@ rules:
   # Ubisoft
   - DOMAIN-KEYWORD,ubi,🎮 Ubisoft
   - DOMAIN-KEYWORD,ubisoft,🎮 Ubisoft
+
+  # PlayStation 连通性测试 -> 直连
+  - DOMAIN,ena.net.playstation.net,🕹️ PlayStation-基础服务
+  # PlayStation NAT类型检测(fike-ip-filter要排除此域名) -> 直连
+  - DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务
+
+  # PlayStation
+  - DOMAIN-KEYWORD,playstation,🎮 PlayStation
+
+  # SpeedTest
+  - GEOSITE,speedtest,⏱️ SpeedTest
+  - DOMAIN-KEYWORD,speedtest,⏱️ SpeedTest
 
   # DNS 泄露检测网站
   - DOMAIN-SUFFIX,browserleaks.com,🚀 Proxy
