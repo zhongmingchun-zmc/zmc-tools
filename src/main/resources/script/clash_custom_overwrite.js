@@ -161,7 +161,7 @@ function main(config) {
         {name: "🎮 Steam"},
         {name: "🛍️ Ubisoft-商城"},
         {name: "🎮 Ubisoft", defaultSelected: directGroupName},
-        {name: "🕹️ PlayStation-基础服务", defaultSelected: directGroupName},
+        {name: "🕹️ PlayStation-基础服务", defaultSelected: proxyGroupName},
         {name: "🕹️ PlayStation", defaultSelected: proxyGroupName},
         {name: "⏱️ SpeedTest", defaultSelected: directGroupName},
         {name: "🇨🇳 国内", defaultSelected: directGroupName},
