@@ -190,7 +190,8 @@ function main(config) {
         {name: "🎮 Steam"},
         {name: "🛍️ Ubisoft-商城"},
         {name: "🎮 Ubisoft", defaultSelected: directGroupName},
-        {name: "🕹️ PlayStation", defaultSelected: directGroupName}
+        {name: "🕹️ PlayStation", defaultSelected: directGroupName},
+        {name: "🎮 PSN", defaultSelected: proxyGroupName}
     ];
 
     const serviceGroups = serviceGroupConfigs.map(item => ({
@@ -234,6 +235,14 @@ function main(config) {
         "GEOSITE,speedtest,⏱️ SpeedTest",
 
         // PlayStation
+        // PSN 在线服务
+        "DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PSN",
+        "DOMAIN,ena.net.playstation.net,🎮 PSN",
+        "DOMAIN,feature.api.playstation.com,🎮 PSN",
+        "DOMAIN,image.api.playstation.com,🎮 PSN",
+        "DOMAIN,primus.api.playstation.com,🎮 PSN",
+        "DOMAIN,ps5.np.playstation.net,🎮 PSN",
+
         "GEOSITE,playstation,🕹️ PlayStation",
 
         // AI
