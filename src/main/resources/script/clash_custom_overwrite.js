@@ -368,6 +368,10 @@ function main(config) {
     const fakeIpFilters = [
         "geosite:cn",
         "geosite:private",
+        "geosite:playstation",
+        "+.stun.playstation.net",
+        "+.turn.playstation.net",
+        "+.sonyentertainmentnetwork.com",
         "+.lan",
         "+.local",
         "+.home.arpa",

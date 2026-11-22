@@ -344,6 +344,10 @@ dns:
   fake-ip-filter+:
     - "geosite:cn"
     - "geosite:private"
+    - "geosite:playstation"
+    - "+.stun.playstation.net"
+    - "+.turn.playstation.net"
+    - "+.sonyentertainmentnetwork.com"
     - "+.lan"
     - "+.local"
     - "+.home.arpa"
