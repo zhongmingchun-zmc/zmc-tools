@@ -180,15 +180,15 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "➡️直连"
 
-  - name: "🕹️ PlayStation"
-    type: select
-    proxies: *common-proxies
-    default-selected: "➡️直连"
-
   - name: "🎮 PSN"
     type: select
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
+
+  - name: "🕹️ PlayStation"
+    type: select
+    proxies: *common-proxies
+    default-selected: "➡️直连"
 
   # ==========================================
   # 4. 国内、国外及兜底代理组
@@ -230,11 +230,11 @@ rules:
 
   # PSN 在线服务
   - DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PSN
-  - DOMAIN,ena.net.playstation.net,🎮 PSN
-  - DOMAIN,feature.api.playstation.com,🎮 PSN
-  - DOMAIN,image.api.playstation.com,🎮 PSN
-  - DOMAIN,primus.api.playstation.com,🎮 PSN
-  - DOMAIN,ps5.np.playstation.net,🎮 PSN
+  - DOMAIN-SUFFIX,dl.playstation.net,🎮 PSN
+  - DOMAIN-SUFFIX,update.playstation.net,🎮 PSN
+  - DOMAIN-SUFFIX,post.net.playstation.net,🎮 PSN
+  - DOMAIN-SUFFIX,api.playstation.com,🎮 PSN
+  - DOMAIN-SUFFIX,ps5.np.playstation.net,🎮 PSN
 
   # PlayStation
   - GEOSITE,playstation,🕹️ PlayStation
