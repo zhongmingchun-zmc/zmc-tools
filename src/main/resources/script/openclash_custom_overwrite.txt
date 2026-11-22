@@ -145,7 +145,7 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
 
-  - name: "🪟 Microsoft"
+  - name: "💻 Microsoft"
     type: select
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
@@ -255,7 +255,7 @@ rules:
   - DOMAIN-KEYWORD,apple,🍎 Apple
 
   # Microsoft
-  - GEOSITE,microsoft,🪟 Microsoft
+  - GEOSITE,microsoft,💻 Microsoft
 
   # Telegram
   - GEOSITE,telegram,✈️ Telegram

@@ -183,7 +183,7 @@ function main(config) {
         {name: "🐙 GitHub"},
         {name: "🍎 Apple-基础服务", defaultSelected: directGroupName},
         {name: "🍎 Apple"},
-        {name: "🪟 Microsoft"},
+        {name: "💻 Microsoft"},
         {name: "✈️ Telegram"},
         {name: "🐦 Twitter"},
         {name: "🎮 Steam-基础服务", defaultSelected: directGroupName},
@@ -267,7 +267,7 @@ function main(config) {
         "DOMAIN-KEYWORD,apple,🍎 Apple",
 
         // Microsoft
-        "GEOSITE,microsoft,🪟 Microsoft",
+        "GEOSITE,microsoft,💻 Microsoft",
 
         // Telegram
         "GEOSITE,telegram,✈️ Telegram",
