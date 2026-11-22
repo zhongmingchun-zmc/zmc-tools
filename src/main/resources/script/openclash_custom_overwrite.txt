@@ -236,7 +236,6 @@ rules:
   - DOMAIN-SUFFIX,ps5.np.playstation.net,🎮 PSN
 
   # PlayStation
-    // 上传服务
   - DOMAIN-KEYWORD,playstation,🕹️ PlayStation
 
   # AI
