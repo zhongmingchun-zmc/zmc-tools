@@ -162,7 +162,7 @@ function main(config) {
         {name: "🛍️ Ubisoft-商城"},
         {name: "🎮 Ubisoft", defaultSelected: directGroupName},
         {name: "🕹️ PlayStation-基础服务", defaultSelected: directGroupName},
-        {name: "🎮 PlayStation", defaultSelected: proxyGroupName},
+        {name: "🕹️ PlayStation", defaultSelected: proxyGroupName},
         {name: "⏱️ SpeedTest", defaultSelected: directGroupName},
         {name: "🇨🇳 国内", defaultSelected: directGroupName},
         {name: "🌐 国外", defaultSelected: proxyGroupName},
@@ -276,7 +276,7 @@ function main(config) {
         "DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务",
 
         // PlayStation
-        "DOMAIN-KEYWORD,playstation,🎮 PlayStation",
+        "DOMAIN-KEYWORD,playstation,🕹️ PlayStation",
 
         // SpeedTest
         "GEOSITE,speedtest,⏱️ SpeedTest",

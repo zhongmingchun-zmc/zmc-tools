@@ -185,7 +185,7 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "➡️直连"
 
-  - name: "🎮 PlayStation"
+  - name: "🕹️ PlayStation"
     type: select
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
@@ -305,7 +305,7 @@ rules:
   - DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务
 
   # PlayStation
-  - DOMAIN-KEYWORD,playstation,🎮 PlayStation
+  - DOMAIN-KEYWORD,playstation,🕹️ PlayStation
 
   # SpeedTest
   - GEOSITE,speedtest,⏱️ SpeedTest
