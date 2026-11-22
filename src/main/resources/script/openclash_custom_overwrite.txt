@@ -223,7 +223,7 @@ proxy-groups:
 rules:
 
   # 私有网络域名
-  - GEOSITE,private,➡️直连
+  - GEOSITE,private,DIRECT
 
   # AI
   - GEOSITE,category-ai-!cn,🤖 AI
@@ -319,10 +319,12 @@ rules:
   - DOMAIN-SUFFIX,whoer.net,🌐 国外
   - DOMAIN-SUFFIX,dnscheck.tools,🌐 国外
 
-  # 国内外兜底
-  - GEOSITE,cn,DIRECT
-  - GEOIP,CN,DIRECT,no-resolve
+  # 国外
   - GEOSITE,geolocation-!cn,🌐 国外
+
+  # 国内
+  - GEOSITE,cn,🇨🇳 国内
+  - GEOIP,CN,🇨🇳 国内,no-resolve
 
   # 最终兜底
   - MATCH,🐟 漏网之鱼
