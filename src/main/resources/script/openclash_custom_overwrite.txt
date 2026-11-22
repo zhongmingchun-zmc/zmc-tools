@@ -180,12 +180,12 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "➡️直连"
 
-  - name: "🎮 PSN"
+  - name: "🎮 PlayStation"
     type: select
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
 
-  - name: "🕹️ PlayStation"
+  - name: "🕹️ PlayStation-基础服务"
     type: select
     proxies: *common-proxies
     default-selected: "➡️直连"
@@ -228,15 +228,27 @@ rules:
   # SpeedTest / PlayStation
   - GEOSITE,speedtest,⏱️ SpeedTest
 
+
+  # 连通性测试 -> 直连
+  - DOMAIN,ena.net.playstation.net,🕹️ PlayStation-基础服务
+  # NAT检测 -> 直连
+  - DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务
+
+  # 其余全部走代理
+  - DOMAIN-KEYWORD,playstation,🎮 PlayStation
+
+  # 上传服务 -> 代理
+  - DOMAIN-SUFFIX,post.net.playstation.net,🕹️ PlayStation-基础服务
   # PSN 在线服务
-  - DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PSN
-  - DOMAIN-SUFFIX,dl.playstation.net,🎮 PSN
-  - DOMAIN-SUFFIX,update.playstation.net,🎮 PSN
-  - DOMAIN-SUFFIX,api.playstation.com,🎮 PSN
-  - DOMAIN-SUFFIX,ps5.np.playstation.net,🎮 PSN
+  - DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PlayStation
+  - DOMAIN-SUFFIX,dl.playstation.net,🎮 PlayStation
+  - DOMAIN-SUFFIX,update.playstation.net,🎮 PlayStation
+
+  - DOMAIN-SUFFIX,api.playstation.com,🎮 PlayStation
+  - DOMAIN-SUFFIX,ps5.np.playstation.net,🎮 PlayStation
 
   # PlayStation
-  - DOMAIN-KEYWORD,playstation,🕹️ PlayStation
+  - GEOSITE,playstation,🕹️ PlayStation-基础服务
 
   # AI
   - GEOSITE,category-ai-!cn,🤖 AI
