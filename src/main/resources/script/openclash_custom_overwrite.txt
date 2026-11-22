@@ -115,6 +115,16 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
 
+  - name: "🎵 TikTok"
+    type: select
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
+
+  - name: "🎬 Netflix"
+    type: select
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
+
   - name: "🔎 Google"
     type: select
     proxies: *common-proxies
@@ -219,6 +229,12 @@ rules:
 
   # YouTube
   - GEOSITE,youtube,▶️ YouTube
+
+  # TikTok
+  - GEOSITE,tiktok,🎵 TikTok
+
+  # Netflix
+  - GEOSITE,netflix,🎬 Netflix
 
   # Google
   - GEOSITE,google,🔎 Google
@@ -327,3 +343,8 @@ dns:
   # 数组追加：保留原有 fake-ip-filter 内容
   fake-ip-filter+:
     - "geosite:cn"
+    - "geosite:private"
+    - "+.lan"
+    - "+.local"
+    - "+.home.arpa"
+    - "localhost"

@@ -177,6 +177,8 @@ function main(config) {
     const serviceGroupConfigs = [
         {name: "🤖 AI"},
         {name: "▶️ YouTube"},
+        {name: "🎵 TikTok", defaultSelected: proxyGroupName},
+        {name: "🎬 Netflix", defaultSelected: proxyGroupName},
         {name: "🔎 Google"},
         {name: "🐙 GitHub"},
         {name: "🍎 Apple-基础服务", defaultSelected: directGroupName},
@@ -239,6 +241,12 @@ function main(config) {
 
         // YouTube
         "GEOSITE,youtube,▶️ YouTube",
+
+        // TikTok
+        "GEOSITE,tiktok,🎵 TikTok",
+
+        // Netflix
+        "GEOSITE,netflix,🎬 Netflix",
 
         // Google
         "GEOSITE,google,🔎 Google",
@@ -351,14 +359,25 @@ function main(config) {
     // Fake-IP 黑名单模式
     config.dns["fake-ip-filter-mode"] = "blacklist";
 
-    // fake-ip-filter 增量追加 geosite:cn，保留已有配置
+    // fake-ip-filter 增量追加局域网域名，保留已有配置
     config.dns["fake-ip-filter"] =
         Array.isArray(config.dns["fake-ip-filter"])
             ? config.dns["fake-ip-filter"]
             : [];
 
-    if (!config.dns["fake-ip-filter"].includes("geosite:cn")) {
-        config.dns["fake-ip-filter"].push("geosite:cn");
+    const fakeIpFilters = [
+        "geosite:cn",
+        "geosite:private",
+        "+.lan",
+        "+.local",
+        "+.home.arpa",
+        "localhost"
+    ];
+
+    for (const filter of fakeIpFilters) {
+        if (!config.dns["fake-ip-filter"].includes(filter)) {
+            config.dns["fake-ip-filter"].push(filter);
+        }
     }
 
     return config;
