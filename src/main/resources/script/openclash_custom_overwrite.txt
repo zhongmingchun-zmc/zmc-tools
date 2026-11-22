@@ -301,7 +301,7 @@ rules:
 
   # PlayStation 连通性测试 -> 直连
   - DOMAIN,ena.net.playstation.net,🕹️ PlayStation-基础服务
-  # PlayStation NAT类型检测(fike-ip-filter要排除此域名) -> 直连
+  # PlayStation NAT类型检测(fake-ip-filter要排除此域名) -> 直连
   - DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务
 
   # PlayStation
