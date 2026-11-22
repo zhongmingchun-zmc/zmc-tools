@@ -312,12 +312,12 @@ rules:
   - DOMAIN-KEYWORD,speedtest,⏱️ SpeedTest
 
   # DNS 泄露检测网站
-  - DOMAIN-SUFFIX,browserleaks.com,🚀 Proxy
-  - DOMAIN-SUFFIX,dnsleaktest.com,🚀 Proxy
-  - DOMAIN-SUFFIX,dnsleak.com,🚀 Proxy
-  - DOMAIN-SUFFIX,ipleak.net,🚀 Proxy
-  - DOMAIN-SUFFIX,whoer.net,🚀 Proxy
-  - DOMAIN-SUFFIX,dnscheck.tools,🚀 Proxy
+  - DOMAIN-SUFFIX,browserleaks.com,🌐 国外
+  - DOMAIN-SUFFIX,dnsleaktest.com,🌐 国外
+  - DOMAIN-SUFFIX,dnsleak.com,🌐 国外
+  - DOMAIN-SUFFIX,ipleak.net,🌐 国外
+  - DOMAIN-SUFFIX,whoer.net,🌐 国外
+  - DOMAIN-SUFFIX,dnscheck.tools,🌐 国外
 
   # 国内外兜底
   - GEOSITE,cn,DIRECT
