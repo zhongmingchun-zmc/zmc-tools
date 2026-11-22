@@ -1,4 +1,3 @@
-
 function main(config) {
     // =========================
     // 1. 基础配置
@@ -176,18 +175,20 @@ function main(config) {
     // =========================
 
     const serviceGroupConfigs = [
-        { name: "🤖 AI" },
-        { name: "▶️ YouTube" },
-        { name: "🔎 Google" },
-        { name: "🐙 GitHub" },
-        { name: "🍎 Apple-基础服务", defaultSelected: directGroupName },
-        { name: "🍎 Apple" },
-        { name: "🪟 Microsoft" },
-        { name: "✈️ Telegram" },
-        { name: "🎮 Steam-基础服务", defaultSelected: directGroupName },
-        { name: "🎮 Steam" },
-        { name: "🛍️ Ubisoft-商城" },
-        { name: "🎮 Ubisoft", defaultSelected: directGroupName }
+        {name: "🤖 AI"},
+        {name: "▶️ YouTube"},
+        {name: "🔎 Google"},
+        {name: "🐙 GitHub"},
+        {name: "🍎 Apple-基础服务", defaultSelected: directGroupName},
+        {name: "🍎 Apple"},
+        {name: "🪟 Microsoft"},
+        {name: "✈️ Telegram"},
+        {name: "🐦 Twitter"},
+        {name: "🎮 Steam-基础服务", defaultSelected: directGroupName},
+        {name: "🎮 Steam"},
+        {name: "🛍️ Ubisoft-商城"},
+        {name: "🎮 Ubisoft", defaultSelected: directGroupName},
+        {name: "🕹️ PlayStation", defaultSelected: directGroupName}
     ];
 
     const serviceGroups = serviceGroupConfigs.map(item => ({
@@ -208,6 +209,12 @@ function main(config) {
         fallbackGroup,
         ...regionGroups,
         ...serviceGroups,
+        {
+            name: "⏱️ SpeedTest",
+            type: "select",
+            proxies: [...commonProxies],
+            "default-selected": directGroupName
+        },
         domesticGroup,
         foreignGroup,
         finalGroup
@@ -218,6 +225,15 @@ function main(config) {
     // =========================
 
     config.rules = [
+        // 私有网络域名
+        "GEOSITE,private,➡️直连",
+
+        // SpeedTest
+        "GEOSITE,speedtest,⏱️ SpeedTest",
+
+        // PlayStation
+        "GEOSITE,playstation,🕹️ PlayStation",
+
         // AI
         "GEOSITE,category-ai-!cn,🤖 AI",
 
@@ -262,6 +278,9 @@ function main(config) {
         "IP-CIDR6,2001:b28:f23d::/48,✈️ Telegram,no-resolve",
         "IP-CIDR6,2001:b28:f23f::/48,✈️ Telegram,no-resolve",
         "IP-CIDR6,2a0a:f280::/32,✈️ Telegram,no-resolve",
+
+        // Twitter / X
+        "GEOSITE,twitter,🐦 Twitter",
 
         // Steam 基础服务
         "DOMAIN,steamcdn-a.akamaihd.net,🎮 Steam-基础服务",
@@ -331,13 +350,13 @@ function main(config) {
 
     // Fake-IP 黑名单模式
     config.dns["fake-ip-filter-mode"] = "blacklist";
-    
+
     // fake-ip-filter 增量追加 geosite:cn，保留已有配置
     config.dns["fake-ip-filter"] =
         Array.isArray(config.dns["fake-ip-filter"])
             ? config.dns["fake-ip-filter"]
             : [];
-    
+
     if (!config.dns["fake-ip-filter"].includes("geosite:cn")) {
         config.dns["fake-ip-filter"].push("geosite:cn");
     }

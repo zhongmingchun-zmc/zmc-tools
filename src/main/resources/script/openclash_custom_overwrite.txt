@@ -145,6 +145,11 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "🚀 Proxy"
 
+  - name: "🐦 Twitter"
+    type: select
+    proxies: *common-proxies
+    default-selected: "🚀 Proxy"
+
   - name: "🎮 Steam-基础服务"
     type: select
     proxies: *common-proxies
@@ -165,9 +170,19 @@ proxy-groups:
     proxies: *common-proxies
     default-selected: "➡️直连"
 
+  - name: "🕹️ PlayStation"
+    type: select
+    proxies: *common-proxies
+    default-selected: "➡️直连"
+
   # ==========================================
   # 4. 国内、国外及兜底代理组
   # ==========================================
+
+  - name: "⏱️ SpeedTest"
+    type: select
+    proxies: *common-proxies
+    default-selected: "➡️直连"
 
   - name: "🇨🇳 国内"
     type: select
@@ -191,6 +206,13 @@ proxy-groups:
 # ==========================================
 
 rules:
+
+  # 私有网络域名
+  - GEOSITE,private,➡️直连
+
+  # SpeedTest / PlayStation
+  - GEOSITE,speedtest,⏱️ SpeedTest
+  - GEOSITE,playstation,🕹️ PlayStation
 
   # AI
   - GEOSITE,category-ai-!cn,🤖 AI
@@ -237,6 +259,9 @@ rules:
   - IP-CIDR6,2001:b28:f23d::/48,✈️ Telegram,no-resolve
   - IP-CIDR6,2001:b28:f23f::/48,✈️ Telegram,no-resolve
   - IP-CIDR6,2a0a:f280::/32,✈️ Telegram,no-resolve
+
+  # Twitter / X
+  - GEOSITE,twitter,🐦 Twitter
 
   # Steam 基础服务
   - DOMAIN,steamcdn-a.akamaihd.net,🎮 Steam-基础服务
