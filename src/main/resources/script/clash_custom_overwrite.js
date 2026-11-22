@@ -142,36 +142,7 @@ function main(config) {
     ];
 
     // =========================
-    // 8. 创建国内、国外及兜底代理组
-    // =========================
-
-    const domesticGroupName = "🇨🇳 国内";
-    const foreignGroupName = "🌐 国外";
-    const finalGroupName = "🐟 漏网之鱼";
-
-    const domesticGroup = {
-        name: domesticGroupName,
-        type: "select",
-        proxies: [...commonProxies],
-        "default-selected": directGroupName
-    };
-
-    const foreignGroup = {
-        name: foreignGroupName,
-        type: "select",
-        proxies: [...commonProxies],
-        "default-selected": proxyGroupName
-    };
-
-    const finalGroup = {
-        name: finalGroupName,
-        type: "select",
-        proxies: [...commonProxies],
-        "default-selected": proxyGroupName
-    };
-
-    // =========================
-    // 9. 创建服务分流代理组
+    // 8. 创建服务分流代理组（含 SpeedTest、国内、国外及兜底）
     // =========================
 
     const serviceGroupConfigs = [
@@ -190,8 +161,12 @@ function main(config) {
         {name: "🎮 Steam"},
         {name: "🛍️ Ubisoft-商城"},
         {name: "🎮 Ubisoft", defaultSelected: directGroupName},
-        {name: "🕹️ PlayStation", defaultSelected: directGroupName},
-        {name: "🎮 PSN", defaultSelected: proxyGroupName}
+        {name: "🕹️ PlayStation-基础服务", defaultSelected: directGroupName},
+        {name: "🎮 PlayStation", defaultSelected: proxyGroupName},
+        {name: "⏱️ SpeedTest", defaultSelected: directGroupName},
+        {name: "🇨🇳 国内", defaultSelected: directGroupName},
+        {name: "🌐 国外", defaultSelected: proxyGroupName},
+        {name: "🐟 漏网之鱼", defaultSelected: proxyGroupName}
     ];
 
     const serviceGroups = serviceGroupConfigs.map(item => ({
@@ -202,7 +177,7 @@ function main(config) {
     }));
 
     // =========================
-    // 10. 整体替换原始代理组
+    // 9. 整体替换原始代理组
     // =========================
 
     config["proxy-groups"] = [
@@ -211,39 +186,16 @@ function main(config) {
         autoGroup,
         fallbackGroup,
         ...regionGroups,
-        ...serviceGroups,
-        {
-            name: "⏱️ SpeedTest",
-            type: "select",
-            proxies: [...commonProxies],
-            "default-selected": directGroupName
-        },
-        domesticGroup,
-        foreignGroup,
-        finalGroup
+        ...serviceGroups
     ];
 
     // =========================
-    // 11. 全量替换分流规则
+    // 10. 全量替换分流规则
     // =========================
 
     config.rules = [
         // 私有网络域名
-        "GEOSITE,private,➡️直连",
-
-        // SpeedTest
-        "GEOSITE,speedtest,⏱️ SpeedTest",
-
-        // PlayStation
-        // PSN 在线服务
-        "DOMAIN-SUFFIX,np.communication.playstation.net,🎮 PSN",
-        "DOMAIN,ena.net.playstation.net,🎮 PSN",
-        "DOMAIN,feature.api.playstation.com,🎮 PSN",
-        "DOMAIN,image.api.playstation.com,🎮 PSN",
-        "DOMAIN,primus.api.playstation.com,🎮 PSN",
-        "DOMAIN,ps5.np.playstation.net,🎮 PSN",
-
-        "GEOSITE,playstation,🕹️ PlayStation",
+        "GEOSITE,private,DIRECT",
 
         // AI
         "GEOSITE,category-ai-!cn,🤖 AI",
@@ -318,25 +270,39 @@ function main(config) {
         "DOMAIN-KEYWORD,ubi,🎮 Ubisoft",
         "DOMAIN-KEYWORD,ubisoft,🎮 Ubisoft",
 
-        // DNS 泄露检测网站，统一走国外
-        "DOMAIN-SUFFIX,browserleaks.com,🚀 Proxy",
-        "DOMAIN-SUFFIX,dnsleaktest.com,🚀 Proxy",
-        "DOMAIN-SUFFIX,dnsleak.com,🚀 Proxy",
-        "DOMAIN-SUFFIX,ipleak.net,🚀 Proxy",
-        "DOMAIN-SUFFIX,whoer.net,🚀 Proxy",
-        "DOMAIN-SUFFIX,dnscheck.tools,🚀 Proxy",
+        // PlayStation 连通性测试 -> 直连
+        "DOMAIN,ena.net.playstation.net,🕹️ PlayStation-基础服务",
+        // PlayStation NAT类型检测(fake-ip-filter要排除此域名) -> 直连
+        "DOMAIN-SUFFIX,stun.playstation.net,🕹️ PlayStation-基础服务",
 
-        // 国内外兜底
-        "GEOSITE,cn,DIRECT",
-        "GEOIP,CN,DIRECT,no-resolve",
+        // PlayStation
+        "DOMAIN-KEYWORD,playstation,🎮 PlayStation",
+
+        // SpeedTest
+        "GEOSITE,speedtest,⏱️ SpeedTest",
+        "DOMAIN-KEYWORD,speedtest,⏱️ SpeedTest",
+
+        // DNS 泄露检测网站
+        "DOMAIN-SUFFIX,browserleaks.com,🌐 国外",
+        "DOMAIN-SUFFIX,dnsleaktest.com,🌐 国外",
+        "DOMAIN-SUFFIX,dnsleak.com,🌐 国外",
+        "DOMAIN-SUFFIX,ipleak.net,🌐 国外",
+        "DOMAIN-SUFFIX,whoer.net,🌐 国外",
+        "DOMAIN-SUFFIX,dnscheck.tools,🌐 国外",
+
+        // 国外
         "GEOSITE,geolocation-!cn,🌐 国外",
+
+        // 国内
+        "GEOSITE,cn,🇨🇳 国内",
+        "GEOIP,CN,🇨🇳 国内,no-resolve",
 
         // 最终兜底
         "MATCH,🐟 漏网之鱼"
     ];
 
     // =========================
-    // 12. DNS 配置
+    // 11. DNS 配置
     // =========================
 
     config.dns = config.dns || {};
