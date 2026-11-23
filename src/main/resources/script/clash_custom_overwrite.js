@@ -300,45 +300,10 @@ function main(config) {
         "DOMAIN-SUFFIX,whoer.net,🌐 国外",
         "DOMAIN-SUFFIX,dnscheck.tools,🌐 国外",
 
-        // 常用国际 IP 检测网站
-        "DOMAIN-SUFFIX,ipinfo.io,🌐 国外",
-        "DOMAIN-SUFFIX,ip-api.com,🌐 国外",
-        "DOMAIN-SUFFIX,ipapi.co,🌐 国外",
-        "DOMAIN-SUFFIX,ipapi.com,🌐 国外",
-        "DOMAIN-SUFFIX,ipwho.is,🌐 国外",
-        "DOMAIN-SUFFIX,ipwhois.io,🌐 国外",
-        "DOMAIN-SUFFIX,ipify.org,🌐 国外",
-        "DOMAIN-SUFFIX,ipify.com,🌐 国外",
-        "DOMAIN-SUFFIX,ifconfig.me,🌐 国外",
-        "DOMAIN-SUFFIX,ifconfig.co,🌐 国外",
-        "DOMAIN-SUFFIX,icanhazip.com,🌐 国外",
-        "DOMAIN-SUFFIX,checkip.amazonaws.com,🌐 国外",
+        // 国际 IP 检测网站
         "DOMAIN-SUFFIX,ip.sb,🌐 国外",
-        "DOMAIN-SUFFIX,myip.com,🌐 国外",
-        "DOMAIN-SUFFIX,ipchicken.com,🌐 国外",
-        "DOMAIN-SUFFIX,whatismyipaddress.com,🌐 国外",
-        "DOMAIN-SUFFIX,whatismyip.com,🌐 国外",
-        "DOMAIN-SUFFIX,iplocation.net,🌐 国外",
-        "DOMAIN-SUFFIX,ipaddress.com,🌐 国外",
-        "DOMAIN-SUFFIX,ip2location.com,🌐 国外",
-        "DOMAIN-SUFFIX,ipgeolocation.io,🌐 国外",
-        "DOMAIN-SUFFIX,ipdata.co,🌐 国外",
-        "DOMAIN-SUFFIX,ipstack.com,🌐 国外",
-        "DOMAIN-SUFFIX,seeip.org,🌐 国外",
-        "DOMAIN-SUFFIX,test-ipv6.com,🌐 国外",
-        "DOMAIN-SUFFIX,ipv6-test.com,🌐 国外",
-        "DOMAIN-SUFFIX,ipcheck.ing,🌐 国外",
-        "DOMAIN-SUFFIX,ping.pe,🌐 国外",
-        "DOMAIN-SUFFIX,bgp.tools,🌐 国外",
-        "DOMAIN-SUFFIX,bgp.he.net,🌐 国外",
-
-        // 国内 IP 检测网站
-        "DOMAIN-SUFFIX,ping0.cc,🇨🇳 国内",
-
-        // 国外 CDN（无对应 GEOSITE，按 IP 兜底）
-        "GEOIP,cloudflare,🌐 国外,no-resolve",
-        "GEOIP,cloudfront,🌐 国外,no-resolve",
-        "GEOIP,fastly,🌐 国外,no-resolve",
+        "DOMAIN-SUFFIX,ipwho.is,🌐 国外",
+        "DOMAIN-SUFFIX,ipapi.is,🌐 国外",
 
         // 国外
         "GEOSITE,geolocation-!cn,🌐 国外",
