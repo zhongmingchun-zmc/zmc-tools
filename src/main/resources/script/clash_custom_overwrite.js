@@ -157,6 +157,7 @@ function main(config) {
         {name: "💻 Microsoft"},
         {name: "✈️ Telegram"},
         {name: "🐦 Twitter"},
+        {name: "📘 Meta"},
         {name: "🎮 Steam-基础服务", defaultSelected: directGroupName},
         {name: "🎮 Steam"},
         {name: "🛍️ Ubisoft-商城"},
@@ -250,6 +251,9 @@ function main(config) {
 
         // Twitter / X
         "GEOSITE,twitter,🐦 Twitter",
+
+        // Meta（Facebook / Instagram / WhatsApp / Threads）
+        "GEOSITE,meta,📘 Meta",
 
         // Steam 基础服务
         "DOMAIN,steamcdn-a.akamaihd.net,🎮 Steam-基础服务",
