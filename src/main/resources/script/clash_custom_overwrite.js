@@ -288,6 +288,8 @@ function main(config) {
 
         // DNS 泄露检测网站
         "DOMAIN-SUFFIX,browserleaks.com,🌐 国外",
+        "DOMAIN-SUFFIX,browserleaks.org,🌐 国外",
+        "DOMAIN-KEYWORD,browserleaks,🌐 国外",
         "DOMAIN-SUFFIX,dnsleaktest.com,🌐 国外",
         "DOMAIN-SUFFIX,dnsleak.com,🌐 国外",
         "DOMAIN-SUFFIX,ipleak.net,🌐 国外",
