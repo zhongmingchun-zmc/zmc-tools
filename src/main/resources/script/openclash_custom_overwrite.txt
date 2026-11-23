@@ -217,7 +217,7 @@ proxy-groups:
   - name: "🐟 漏网之鱼"
     type: select
     proxies: *common-proxies
-    default-selected: "🚀 Proxy"
+    default-selected: "➡️直连"
 
 
 # ==========================================

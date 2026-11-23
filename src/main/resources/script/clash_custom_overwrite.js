@@ -167,7 +167,7 @@ function main(config) {
         {name: "⏱️ SpeedTest", defaultSelected: directGroupName},
         {name: "🇨🇳 国内", defaultSelected: directGroupName},
         {name: "🌐 国外", defaultSelected: proxyGroupName},
-        {name: "🐟 漏网之鱼", defaultSelected: proxyGroupName}
+        {name: "🐟 漏网之鱼", defaultSelected: directGroupName}
     ];
 
     const serviceGroups = serviceGroupConfigs.map(item => ({
