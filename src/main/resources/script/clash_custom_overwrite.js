@@ -165,9 +165,10 @@ function main(config) {
         {name: "🕹️ PlayStation-基础服务", defaultSelected: proxyGroupName},
         {name: "🕹️ PlayStation", defaultSelected: proxyGroupName},
         {name: "⏱️ SpeedTest", defaultSelected: directGroupName},
-        {name: "🇨🇳 国内", defaultSelected: directGroupName},
+        {name: "☁️ CDN", defaultSelected: proxyGroupName},
         {name: "🌐 国外", defaultSelected: proxyGroupName},
-        {name: "🐟 漏网之鱼", defaultSelected: directGroupName}
+        {name: "🇨🇳 国内", defaultSelected: directGroupName},
+        {name: "🐟 漏网之鱼", defaultSelected: proxyGroupName}
     ];
 
     const serviceGroups = serviceGroupConfigs.map(item => ({
@@ -304,6 +305,42 @@ function main(config) {
         "DOMAIN-SUFFIX,ip.sb,🌐 国外",
         "DOMAIN-SUFFIX,ipwho.is,🌐 国外",
         "DOMAIN-SUFFIX,ipapi.is,🌐 国外",
+
+        // 国外 CDN
+        "DOMAIN-SUFFIX,akamai.net,☁️ CDN",
+        "DOMAIN-SUFFIX,akamaihd.net,☁️ CDN",
+        "DOMAIN-SUFFIX,akamaized.net,☁️ CDN",
+        "DOMAIN-SUFFIX,akamaiedge.net,☁️ CDN",
+        "DOMAIN-SUFFIX,edgekey.net,☁️ CDN",
+        "DOMAIN-SUFFIX,edgesuite.net,☁️ CDN",
+        "DOMAIN-SUFFIX,cloudflare.com,☁️ CDN",
+        "DOMAIN-SUFFIX,cloudflare.net,☁️ CDN",
+        "DOMAIN-SUFFIX,cloudfront.net,☁️ CDN",
+        "DOMAIN-SUFFIX,fastly.net,☁️ CDN",
+        "DOMAIN-SUFFIX,fastlylb.net,☁️ CDN",
+        "DOMAIN-SUFFIX,jsdelivr.net,☁️ CDN",
+        "DOMAIN-SUFFIX,unpkg.com,☁️ CDN",
+        "DOMAIN-SUFFIX,bunnycdn.com,☁️ CDN",
+        "DOMAIN-SUFFIX,bunny.net,☁️ CDN",
+        "DOMAIN-SUFFIX,b-cdn.net,☁️ CDN",
+        "DOMAIN-SUFFIX,azureedge.net,☁️ CDN",
+        "DOMAIN-SUFFIX,msecnd.net,☁️ CDN",
+        "DOMAIN-SUFFIX,cloudinary.com,☁️ CDN",
+        "DOMAIN-SUFFIX,imgix.net,☁️ CDN",
+        "DOMAIN-SUFFIX,kxcdn.com,☁️ CDN",
+        "DOMAIN-SUFFIX,stackpathdns.com,☁️ CDN",
+        "DOMAIN-SUFFIX,stackpathcdn.com,☁️ CDN",
+        "DOMAIN-SUFFIX,bootstrapcdn.com,☁️ CDN",
+        "DOMAIN-SUFFIX,incapsula.com,☁️ CDN",
+        "DOMAIN-SUFFIX,impervadns.net,☁️ CDN",
+        "DOMAIN-SUFFIX,sucuri.net,☁️ CDN",
+        "DOMAIN-SUFFIX,netlify.app,☁️ CDN",
+        "DOMAIN-SUFFIX,netlify.com,☁️ CDN",
+        "DOMAIN-SUFFIX,vercel.app,☁️ CDN",
+        "DOMAIN-SUFFIX,vercel.com,☁️ CDN",
+        "DOMAIN-SUFFIX,now.sh,☁️ CDN",
+        "DOMAIN-SUFFIX,cdn77.org,☁️ CDN",
+        "DOMAIN-SUFFIX,hwcdn.net,☁️ CDN",
 
         // 国外
         "GEOSITE,geolocation-!cn,🌐 国外",
