@@ -12,8 +12,8 @@ function main(config) {
     )];
 
     const testUrl = "https://www.gstatic.com/generate_204";
-    const directTestUrl = "https://connect.rom.miui.com/generate_204";
-    const interval = 120;
+    const directTestUrl = "https://www.baidu.com";
+    const interval = 180;
 
     // =========================
     // 2. 创建地区代理组
