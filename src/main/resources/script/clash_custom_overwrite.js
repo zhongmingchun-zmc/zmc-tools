@@ -39,6 +39,10 @@ function main(config) {
         {
             name: "🇺🇸 美国",
             keywords: ["美国", "US", "United States"]
+        },
+        {
+            name: "🇬🇧 英国",
+            keywords: ["英国", "UK", "GB", "United Kingdom", "London"]
         }
     ];
 
@@ -225,6 +229,8 @@ function main(config) {
         "DOMAIN-SUFFIX,apple.com.cn,🍎 Apple-基础服务",
         "DOMAIN-SUFFIX,cdn-apple.com,🍎 Apple-基础服务",
         "DOMAIN-SUFFIX,icloud.com.cn,🍎 Apple-基础服务",
+        "DOMAIN-SUFFIX,icloud-content.com.cn,🍎 Apple-基础服务",
+        "DOMAIN-SUFFIX,icloud.net.cn,🍎 Apple-基础服务",
         "DOMAIN-SUFFIX,time.apple.com,🍎 Apple-基础服务",
         "DOMAIN-KEYWORD,iosapps,🍎 Apple-基础服务",
 
