@@ -24,27 +24,27 @@ proxy-groups:
       - "🇬🇧 英国"
     default-selected: "⚡ 自动选择"
 
-  # 直连组
+  # 直连组（在此定义全局测速间隔，后续组通过 *interval_value 引用）
   - name: "➡️直连"
     type: url-test
     proxies:
       - DIRECT
     url: "https://www.baidu.com"
-    interval: 180
+    interval: &interval_value 180
 
   # 自动选择
   - name: "⚡ 自动选择"
     type: url-test
     include-all: true
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
 
   # 故障转移
   - name: "🛟 故障转移"
     type: fallback
     include-all: true
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
 
   # ==========================================
   # 2. 地区代理组
@@ -56,7 +56,7 @@ proxy-groups:
     include-all: true
     filter: '(?i)香港|HK|Hong Kong'
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
     empty-fallback: DIRECT
 
   - name: "🇯🇵 日本"
@@ -64,7 +64,7 @@ proxy-groups:
     include-all: true
     filter: '(?i)日本|JP|Japan'
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
     empty-fallback: DIRECT
 
   - name: "🇸🇬 新加坡"
@@ -72,7 +72,7 @@ proxy-groups:
     include-all: true
     filter: '(?i)新加坡|SG|Singapore'
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
     empty-fallback: DIRECT
 
   - name: "🇹🇼 台湾"
@@ -80,7 +80,7 @@ proxy-groups:
     include-all: true
     filter: '(?i)台湾|TW|Taiwan'
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
     empty-fallback: DIRECT
 
   - name: "🇺🇸 美国"
@@ -88,15 +88,15 @@ proxy-groups:
     include-all: true
     filter: '(?i)美国|US|United States'
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
     empty-fallback: DIRECT
 
   - name: "🇬🇧 英国"
     type: url-test
     include-all: true
-    filter: '(?i)英国|UK|GB|United Kingdom|London'
+    filter: '(?i)英国|UK|United Kingdom|London'
     url: "https://www.gstatic.com/generate_204"
-    interval: 180
+    interval: *interval_value
     empty-fallback: DIRECT
 
   # ==========================================

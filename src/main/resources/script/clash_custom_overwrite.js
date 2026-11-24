@@ -42,7 +42,7 @@ function main(config) {
         },
         {
             name: "🇬🇧 英国",
-            keywords: ["英国", "UK", "GB", "United Kingdom", "London"]
+            keywords: ["英国", "UK", "United Kingdom", "London"]
         }
     ];
 
