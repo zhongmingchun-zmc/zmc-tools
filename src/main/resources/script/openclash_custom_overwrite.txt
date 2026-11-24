@@ -28,7 +28,7 @@ proxy-groups:
     type: url-test
     proxies:
       - DIRECT
-    url: "https://connect.rom.miui.com/generate_204"
+    url: "https://www.baidu.com"
     interval: 120
 
   # 自动选择
