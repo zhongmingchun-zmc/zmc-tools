@@ -225,7 +225,8 @@ function main(config) {
         "DOMAIN-SUFFIX,apple.com.cn,🍎 Apple-基础服务",
         "DOMAIN-SUFFIX,cdn-apple.com,🍎 Apple-基础服务",
         "DOMAIN-SUFFIX,icloud.com.cn,🍎 Apple-基础服务",
-        "DOMAIN-SUFFIX,time.apple.com,🍎 Apple-基础服务",
+        "DOMAIN,time.apple.com,🍎 Apple-基础服务",
+        "DOMAIN,time-macos.apple.com,🍎 Apple-基础服务",
         "DOMAIN-KEYWORD,iosapps,🍎 Apple-基础服务",
 
         // Apple
