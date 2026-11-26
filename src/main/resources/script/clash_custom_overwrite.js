@@ -191,8 +191,8 @@ function main(config) {
         directGroup,
         autoGroup,
         fallbackGroup,
-        ...regionGroups,
-        ...serviceGroups
+        ...serviceGroups,
+        ...regionGroups
     ];
 
     // =========================
